@@ -29,7 +29,7 @@ defaults:
 jobs:
   # Build job
   build:
-    runs-on: python:3.12.8-slim-bookworm
+    runs-on: ubuntu-latest
     env:
       VERSION: 1.0.0
     steps:
