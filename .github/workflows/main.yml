@@ -5,7 +5,6 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["dev"]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -44,18 +43,14 @@ jobs:
             pip install -r requirements.txt
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v2
       - name: Build with mkdocs
-        env:
-          # For maximum backward compatibility with Hugo modules
-          HUGO_ENVIRONMENT: production
-          HUGO_ENV: production
         run: |
             mkdocs build
             ls -al ./site
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./site
           name: wiki-pages
