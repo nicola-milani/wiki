@@ -54,7 +54,7 @@ jobs:
           HUGO_ENV: production
         run: |
             mkdocs build
-            ls -al .
+            ls -al ./site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
