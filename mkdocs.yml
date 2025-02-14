@@ -1,7 +1,6 @@
 site_name: Milo Wiki
 site_url: https://nicolamilani.it/wiki
 
-
 site_author: Nicola Milani
 site_description: "Appunti per non dimenticare"
 
@@ -9,8 +8,11 @@ theme:
   name: material
 
 markdown_extensions:
-  - admonition
-  - pymdownx.highlight
-  - pymdownx.superfences
-  - toc:
-      permalink: true
+- meta
+- admonition
+- pymdownx.highlight
+- pymdownx.superfences
+- toc:
+    permalink: true
+plugins:
+- tags

@@ -1,20 +1,24 @@
-
+---
+tags:
+  - GitHub
+  - Pipeline
+  - Mkdocs
+---
 Una pipeline GitHub Actions è definita in un file YAML che si trova nella directory workflows del repository. La pipeline è composta da uno o più job, che a loro volta contengono una serie di step. 
 
-# Notazione actions/
+# Notazione "actions/"
 
-La notazione *actions/* in GitHub Actions si riferisce a delle azioni predefinite fornite da GitHub che puoi utilizzare nei tuoi workflow. Queste azioni sono ospitate nel repository ufficiale di GitHub Actions su GitHub e sono progettate per eseguire compiti comuni come il checkout del codice, la configurazione di ambienti di runtime, il caricamento di artefatti, e molto altro.
+La notazione "actions/" in GitHub Actions si riferisce a delle azioni predefinite fornite da GitHub che puoi utilizzare nei tuoi workflow. Queste azioni sono ospitate nel repository ufficiale di GitHub Actions su GitHub e sono progettate per eseguire compiti comuni come il checkout del codice, la configurazione di ambienti di runtime, il caricamento di artefatti, e molto altro.
 
 **Sintassi generale**
 
 La sintassi actions/<nome-azione>@<versione> indica:
 
+```html
 actions/: Il namespace che indica che l'azione è fornita da GitHub.
-
 <nome-azione>: Il nome dell'azione.
-
 @<versione>: La versione specifica dell'azione da utilizzare. Utilizzare una versione specifica è una buona pratica per garantire la stabilità del workflow.
-
+```
 
 # Esempio di workflow
 

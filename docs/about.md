@@ -1,2 +1,0 @@
-# Benvenuto
-Sito di esempio
