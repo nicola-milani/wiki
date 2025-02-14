@@ -1,3 +1,4 @@
+![alt text](image.png)
 ```yaml
 image:
   name: hashicorp/terraform:light
