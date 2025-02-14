@@ -1,9 +1,11 @@
 ---
+title: Github Pages
 tags:
   - GitHub
   - Pipeline
   - Mkdocs
 ---
+
 Una pipeline GitHub Actions è definita in un file YAML che si trova nella directory workflows del repository. La pipeline è composta da uno o più job, che a loro volta contengono una serie di step. 
 
 # Notazione "actions/"
