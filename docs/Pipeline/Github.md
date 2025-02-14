@@ -47,3 +47,68 @@ defaults:
   run:
     shell: bash
 ```
+## Job di build
+Questo job esegue la build del sito. Ecco i passaggi:
+
+**Checkout code**: Clona il repository e lo rende disponibile nello step di build
+
+**Set up Python**: Imposta Python 3.12.
+
+**Install dependencies**: Installa le dipendenze dal file requirements.txt.
+
+**Setup Pages**: Configura GitHub Pages.
+
+**Build with mkdocs**: Costruisce il sito con MkDocs eseguendo i comandi di build.
+
+**Upload artifact**: Carica i file generati nella directory site come artefatto con il nome wiki-pages.
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: | 
+            python -m pip install --upgrade pip
+            ls -al .
+            pip install -r requirements.txt
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build with mkdocs
+        run: |
+            mkdocs build
+            ls -al ./site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+          name: wiki-pages
+```
+
+## Job di deploy
+Questo job esegue il deploy del sito su GitHub Pages.
+
+Checkout code: Clona il repository.
+
+Deploy to GitHub Pages: Esegue il deploy dell'artefatto wiki-pages su GitHub Pages.
+
+```yaml
+deploy:
+  runs-on: ubuntu-latest
+  needs: build
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+      with:
+        artifact_name: wiki-pages
+```
